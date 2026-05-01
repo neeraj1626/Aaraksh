@@ -2,11 +2,18 @@ import firebase_admin
 from firebase_admin import credentials, firestore
 import os
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-cred_path = os.path.join(BASE_DIR, "..", "aaraksh-a2cd0-firebase-adminsdk-fbsvc-04578671ff.json")
-
 if not firebase_admin._apps:
-    cred = credentials.Certificate(cred_path)
+    firebase_key = os.environ.get("FIREBASE_KEY")
+
+    if not firebase_key:
+        raise ValueError("FIREBASE_KEY is not set")
+
+    cred_dict = json.loads(firebase_key)
+
+    # Fix newline issue
+    cred_dict["private_key"] = cred_dict["private_key"].replace("\\n", "\n")
+
+    cred = credentials.Certificate(cred_dict)
     firebase_admin.initialize_app(cred)
 
 db = firestore.client()
