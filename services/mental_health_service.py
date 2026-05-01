@@ -10,6 +10,8 @@ from services.firebase_service import get_user_data, save_chat
 # ============================================================
 API_KEY = os.getenv("GOOGLE_API_KEY")
 genai.configure(api_key=API_KEY)
+print("🔥 GEMINI CALLED")
+print("API KEY:", API_KEY)
 
 model = genai.GenerativeModel(
     model_name="gemini-2.5-flash",
