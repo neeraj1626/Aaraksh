@@ -10,9 +10,6 @@ from services.firebase_service import get_user_data, save_chat
 # ============================================================
 API_KEY = os.getenv("GOOGLE_API_KEY")
 genai.configure(api_key=API_KEY)
-print("🔥 GEMINI CALLED")
-print("API KEY:", API_KEY)
-
 model = genai.GenerativeModel(
     model_name="gemini-2.5-flash",
     system_instruction="""You are a professional, empathetic Mental Health Assistant.
@@ -97,6 +94,8 @@ class MentalHealthAssistant:
     # MAIN CHAT FUNCTION
     # ========================================================
     def process_chat(self, message, user_id):
+        print("🔥 GEMINI CALLED")
+        print("API KEY:", API_KEY)
         try:
             if not message.strip():
                 return {"reply": "I'm listening. Tell me what's on your mind."}
