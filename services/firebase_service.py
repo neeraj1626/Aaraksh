@@ -1,6 +1,7 @@
 import firebase_admin
 from firebase_admin import credentials, firestore
 import os
+import json
 
 if not firebase_admin._apps:
     firebase_key = os.environ.get("FIREBASE_KEY")
