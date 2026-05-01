@@ -296,6 +296,8 @@ def generate_summary(results):
             "risk": "High",
             "message": "Multiple abnormalities were detected. A medical consultation is recommended."
         }
+    print("🔥 OCR GEMINI CALLED")
+    print("API KEY:", GEMINI_API_KEY)
 
 
 # -------------------------------
