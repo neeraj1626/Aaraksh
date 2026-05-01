@@ -1,0 +1,12 @@
+flask
+gunicorn
+numpy
+pandas
+scikit-learn
+joblib
+firebase-admin
+google-generativeai
+pytesseract
+opencv-python
+Pillow
+PyMuPDF
